@@ -1,11 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Todolist from './components/Todolist';
+import store from './redux/store';
 
 const App = () => {
   return (
+  <Provider store={store}>
     <div
     className="grid place-items-center bg-blue-100 h-screen px-6 font-sans"
 >
@@ -21,6 +24,7 @@ const App = () => {
         <Footer/>
     </div>
 </div>
+</Provider>
   );
 };
 

@@ -3,9 +3,10 @@ const initialState = [
         id:1,
         text:'learn react js',
         completed:true,
+        color:'green'
     },
     {
-        id:1,
+        id:2,
         text:'learn redux',
         completed:false,
         color:'red',

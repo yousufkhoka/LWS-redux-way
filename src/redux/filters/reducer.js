@@ -15,8 +15,8 @@ const reducer = (state = initialState , action) =>{
             case 'added':
                 return {
                     ...state,
-                    color: [
-                        ...state.color,
+                    colors: [
+                        ...state.colors,
                         color,
                     ]
                 }
@@ -24,7 +24,7 @@ const reducer = (state = initialState , action) =>{
             case 'removed':
                 return{
                     ...state,
-                    color: color.filter(cureent => cureent !== color) 
+                    colors: state.colors.filter(cureent => cureent !== color) 
                 }   
            
             default:

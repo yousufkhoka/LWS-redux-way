@@ -1,7 +1,8 @@
 
 //  initial state 
-const {todosFatchMiddleware ,deleyMiddleware} = require('./middleware')
+const {fatchAsyncMiddleware} = require('./middleware')
 const { createStore, applyMiddleware } = require("redux");
+const { fetchTodos } = require('./functions');
 
 const initialState = [{
     id:1,
@@ -15,6 +16,7 @@ const mextTodoId = (todos) => {
 }
 
 const reducer = (state = initialState, action) => {
+  console.log( 'action.payload' + action.payload )
       switch (action.type) {
         case 'todoadded':
             return[
@@ -26,6 +28,7 @@ const reducer = (state = initialState, action) => {
             ]
             
         case 'todosLoaded':
+          console.log('payload: ' + action.payload)
           return [
             ...state,
             ...action.payload
@@ -37,12 +40,12 @@ const reducer = (state = initialState, action) => {
 
 
 
-const store = createStore(reducer , applyMiddleware(todosFatchMiddleware ,deleyMiddleware))
+const store = createStore(reducer , applyMiddleware(fatchAsyncMiddleware))
 
 
 store.subscribe(() => console.log(store.getState()))
-console.log(store.getState())
 
 
-store.dispatch({ type:'todoadded' , payload: 'learn react'})
-// store.dispatch({ type:'todos/fatching'})
+
+// store.dispatch({ type:'todoadded' , payload: 'learn react'})
+store.dispatch(fetchTodos)

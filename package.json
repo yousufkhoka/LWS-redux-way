@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "node-fetch": "^2.6.9",
-    "redux": "^4.2.1"
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2"
   }
 }

@@ -1,8 +1,9 @@
 
 //  initial state 
-const {fatchAsyncMiddleware} = require('./middleware')
+
 const { createStore, applyMiddleware } = require("redux");
 const { fetchTodos } = require('./functions');
+const thunk = require('redux-thunk');
 
 const initialState = [{
     id:1,
@@ -36,11 +37,12 @@ const reducer = (state = initialState, action) => {
         default:
            return state;
       }
-}
+
+    }
 
 
 
-const store = createStore(reducer , applyMiddleware(fatchAsyncMiddleware))
+const store = createStore(reducer , applyMiddleware(thunk.default))
 
 
 store.subscribe(() => console.log(store.getState()))

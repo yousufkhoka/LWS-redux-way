@@ -9,8 +9,6 @@ const fetchTodos = async (dispatch , getState) => {
     })
    console.log( `number of updated todos: ${getState().length}`)
 }
-
-
 module.exports = {
     fetchTodos,
 }

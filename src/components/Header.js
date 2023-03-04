@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 import doubleImage from '../assets/images/double-tick.png';
 import notesImage from '../assets/images/notes.png';
 import plusImage from '../assets/images/plus.png';
-import { added, allcompleted, clearcompleted } from '../redux/todos/action';
+import { allcompleted, clearcompleted } from '../redux/todos/action';
+import { addedTodo } from '../redux/todos/thunk/addTodo';
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -13,7 +14,7 @@ const Header = () => {
     }
     const submithendler = (e) =>{
         e.preventDefault()
-        dispatch(added(input))
+        dispatch(addedTodo(input))
     }
     const allCompleteHendler = () => dispatch(allcompleted())
     const clearCompleteHendler = () => dispatch(clearcompleted())

@@ -1,17 +1,17 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-    counter:0
+    count:0
 }
 const counterSlice = createSlice({
     name: "counter",
     initialState,
     reducers:{
         increment:  (state)=> {
-            state.counter ++
+            state.count ++
         },
         decrement:  (state)=> {
-            state.counter --
+            state.count --
         }
     }
 

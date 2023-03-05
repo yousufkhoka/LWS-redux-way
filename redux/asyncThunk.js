@@ -1,4 +1,4 @@
-const { createStore } = require("@reduxjs/toolkit")
+const { createStore, applyMiddleware } = require("@reduxjs/toolkit")
 const   fetch  = require("node-fetch")
 const  thunk = require("redux-thunk")
 
@@ -62,6 +62,7 @@ const reducer = (state = initialState, action) => {
 
 const fetchPosts = () => {
     return async (dispatch) => {
+        console.log('hello')
         dispatch(fetchPostsRequast())
         try{
             const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
@@ -74,7 +75,7 @@ const fetchPosts = () => {
     }
 }
 //  store 
-const store = createStore(reducer,thunk.default)
+const store = createStore(reducer,applyMiddleware(thunk.default))
 
 //  subscribe 
 
@@ -84,4 +85,5 @@ store.subscribe(() => {
 
 //  dispatch
 
-store.dispatch(fetchPosts)
+store.dispatch(fetchPosts())
+console.log('world')

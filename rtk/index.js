@@ -10,11 +10,11 @@ store.subscribe( () => {
     
 )
 
-store.dispatch(counterAction.increment())
-store.dispatch(counterAction.increment())
-store.dispatch(counterAction.decrement())
+// store.dispatch(counterAction.increment())
+// store.dispatch(counterAction.increment())
+// store.dispatch(counterAction.decrement())
 
 
 store.dispatch(dynamicCounterAction.increment(5))
-store.dispatch(dynamicCounterAction.increment(6))
+// store.dispatch(dynamicCounterAction.increment(6))
 store.dispatch(dynamicCounterAction.decrement(2))
